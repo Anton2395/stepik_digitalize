@@ -38,14 +38,10 @@ async def check_request(request: str):
 
 async def handle_echo(reader, writer):
     data = await reader.read(100)
-    print('request:')
-    print(data.decode())
     status_access, data_answer_access = await check_access_request(data)
     if status_access:
         request = data.decode()
         response = await check_request(request)
-        print('response:')
-        print(response.decode())
         writer.write(response)
         await writer.drain()
         print("Close the connection")
