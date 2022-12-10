@@ -1,0 +1,31 @@
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+### Python template
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+DATA
+client.py
+test.py
+
+
+
+
