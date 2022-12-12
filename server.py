@@ -46,6 +46,8 @@ async def handle_echo(reader, writer):
     if status_access:
         request = data.decode()
         response = await check_request(request)
+        print('||||||||||||||||||||||')
+        print(response.decode('utf-8'))
         writer.write(response)
         await writer.drain()
         print("Close the connection")
