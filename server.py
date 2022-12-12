@@ -12,16 +12,18 @@ QUERY_FUNCTION = {
 
 
 async def check_access_request(request: str):
-    reader, writer = await asyncio.open_connection(
-        'vragi-vezde.to.digital', 51624)
-    writer.write(request)
-    data = await reader.read(100)
-    writer.close()
-    if data.decode() == "МОЖНА РКСОК / 1.0":
-        return True, ''.encode()
-    else:
-        return False, data
-    # return True, ''
+    # reader, writer = await asyncio.open_connection(
+    #     'vragi-vezde.to.digital', 51624)
+    # writer.write(request)
+    # data = await reader.read(100)
+    # writer.close()
+    # if data.decode() == "МОЖНА РКСОК / 1.0":
+    #     return True, ''.encode()
+    # else:
+    #     return False, data
+    print('check:')
+    print(request.decode())
+    return True, ''
 
 
 async def check_request(request: str):
@@ -29,7 +31,7 @@ async def check_request(request: str):
     first_line = line_massege[0].split(' ')
     name = ' '.join(first_line[1:-1])
     command = first_line[0]
-    if len(first_line) >= 3 and command in QUERY and first_line[-1] == 'РКСОК/1.0' and len(name) <= 30:
+    if len(first_line) >= 2 and command in QUERY and first_line[-1] == 'РКСОК/1.0' and len(name) <= 30:
         body = '\r\n'.join(line_massege[1:])
         return await QUERY_FUNCTION[command](name=name, body=body)
     else:
