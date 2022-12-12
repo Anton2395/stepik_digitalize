@@ -10,7 +10,7 @@ QUERY_FUNCTION = {
     'ОТДОВАЙ': method_give
 }
 
-
+count = 0
 async def check_access_request(request: str):
     # reader, writer = await asyncio.open_connection(
     #     'vragi-vezde.to.digital', 51624)
@@ -21,7 +21,8 @@ async def check_access_request(request: str):
     #     return True, ''.encode()
     # else:
     #     return False, data
-    print('check:')
+    count += 1
+    print(f'check_{count}:')
     print(request.decode())
     return True, ''
 
