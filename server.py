@@ -13,7 +13,7 @@ QUERY_FUNCTION = {
 count = 0
 
 
-async def check_access_request(request: str, count):
+async def check_access_request(request: str):
     # reader, writer = await asyncio.open_connection(
     #     'vragi-vezde.to.digital', 51624)
     # writer.write(request)
