@@ -14,21 +14,21 @@ count = 0
 
 
 async def check_access_request(request: str):
-    reader, writer = await asyncio.open_connection(
-        'vragi-vezde.to.digital', 51624)
-    writer.write(request)
-    data = await reader.read(100)
-    writer.close()
-
-    print('---------------')
-    print(request.decode())
-    if data.decode() == "МОЖНА РКСОК / 1.0":
-        return True, ''.encode()
-    else:
-        return False, data
+    # reader, writer = await asyncio.open_connection(
+    #     'vragi-vezde.to.digital', 51624)
+    # writer.write(request)
+    # data = await reader.read(100)
+    # writer.close()
+    #
     # print('---------------')
     # print(request.decode())
-    # return True, ''
+    # if data.decode() == "МОЖНА РКСОК / 1.0":
+    #     return True, ''.encode()
+    # else:
+    #     return False, data
+    # print('---------------')
+    print(request.decode())
+    return True, ''
 
 
 async def check_request(request: str):
