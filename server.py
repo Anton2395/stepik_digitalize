@@ -23,6 +23,7 @@ async def check_access_request(request: str, count):
     #     return True, ''.encode()
     # else:
     #     return False, data
+    print('---------------')
     print(request.decode())
     return True, ''
 
